@@ -13,14 +13,18 @@ class LinkedList
 
   def count
     count = 1
-    if @head == nil
-      count = 0
-    elsif
-      until @head.next_node == nil
+    until @head.next_node == nil
+      if @head == nil
+        count = 0
+      elsif @head != nil
         count +=1
       end
     end
     count
+  end
+
+  def to_string
+    head.data
   end
 
 end
