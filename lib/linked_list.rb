@@ -9,7 +9,18 @@ class LinkedList
       @head = Node.new(new_data)
     end
     new_data
-
-
   end
+
+  def count
+    count = 1
+    if @head == nil
+      count = 0
+    elsif
+      until @head.next_node == nil
+        count +=1
+      end
+    end
+    count
+  end
+
 end

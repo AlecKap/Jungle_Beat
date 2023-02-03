@@ -29,9 +29,18 @@ RSpec.describe 'LinkedList' do
     it 'adds new_data to list' do
       list = LinkedList.new
       list.append("doop")
-      list
+      
 
-      expect(list.head.data).to eq("doop") 
+      expect(list.head.data).to eq("doop")
+      expect(list.head).to be_instance_of(Node)
+      expect(list.head.next_node).to eq(nil)
+    end
+
+    it 'counts things in list' do
+      list = LinkedList.new
+      list.append("doop")
+      
+      expect(list.count).to eq(1)
     end
   end
 end
