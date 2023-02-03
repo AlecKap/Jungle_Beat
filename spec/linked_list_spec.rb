@@ -33,7 +33,7 @@ RSpec.describe 'LinkedList' do
 
       expect(list.head.data).to eq("doop")
       expect(list.head).to be_instance_of(Node)
-      expect(list.head.next_node).to eq(nil)
+      expect(list.head.next_node).to be(nil)
     end
 
     it 'counts things in list' do
@@ -63,8 +63,17 @@ RSpec.describe 'LinkedList' do
       list = LinkedList.new
       list.append("doop")
       list.append("deep")
+      list.append("dahp")
 
-      expect(list.count).to eq(2) 
+      expect(list.count).to eq(3) 
+    end
+
+    it 'prints out string of data' do
+      list = LinkedList.new
+      list.append("doop")
+      list.append("deep")
+
+      expect(list.to_string).to eq("doop deep") 
     end
   end
 end
