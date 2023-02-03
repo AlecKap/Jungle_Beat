@@ -18,7 +18,7 @@ RSpec.describe 'LinkedList' do
     end
   end
 
-  describe 'has methods' do
+  describe 'can have one node/element added' do
     it 'accepts new nodes' do
       list = LinkedList.new
       list.append("doop")
@@ -48,6 +48,23 @@ RSpec.describe 'LinkedList' do
       list.append("doop")
 
       expect(list.to_string).to eq("doop")
+    end
+  end
+
+  describe 'can have methods applied to multiple nodes' do
+    it 'adds a second node' do
+      list = LinkedList.new
+      list.append("doop")
+      list.append("deep")
+
+      expect(list.head.next_node).to be_instance_of(Node) 
+    end
+    it 'counts number of nodes in list' do
+      list = LinkedList.new
+      list.append("doop")
+      list.append("deep")
+
+      expect(list.count).to eq(2) 
     end
   end
 end
