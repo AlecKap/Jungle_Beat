@@ -109,5 +109,17 @@ RSpec.describe 'LinkedList' do
 
       expect(list.to_string).to eq("dop woo plop suu")
     end
+
+    it 'finds node element and returns data/additioal nodes' do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.to_string).to eq("deep woo shi shu blop")
+      expect(list.find).to eq("shi")
+    end
   end
 end
