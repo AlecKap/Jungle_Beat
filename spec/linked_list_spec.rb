@@ -99,5 +99,15 @@ RSpec.describe 'LinkedList' do
       expect(list.count).to eq(5)
       expect(list.head.next_node.data).to eq("woo")
     end
+
+    it 'prints list data into string' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+      list.insert(1,"woo")
+
+      expect(list.to_string).to eq("dop woo plop suu")
+    end
   end
 end
