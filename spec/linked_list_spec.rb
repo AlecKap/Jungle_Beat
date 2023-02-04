@@ -95,7 +95,7 @@ RSpec.describe 'LinkedList' do
       list.prepend("dop")
 
       expect(list.insert(1,"woo")).to eq("woo")
-      
+      expect(list.count).to eq(4)
     end
   end
 end
