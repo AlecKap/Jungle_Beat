@@ -60,4 +60,7 @@ class LinkedList
       @head = current_head
     end
   end
+
+
+  #### you are about to start .insert!
 end
