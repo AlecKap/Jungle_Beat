@@ -85,7 +85,7 @@ RSpec.describe 'LinkedList' do
       list.prepend("dop")
 
       expect(list.to_string).to eq("dop plop suu")
-      expect(list.count).to eq(6)
+      expect(list.count).to eq(3)
     end
 
     it 'inserts new data into a specified index' do 
@@ -95,6 +95,7 @@ RSpec.describe 'LinkedList' do
       list.prepend("dop")
 
       expect(list.insert(1,"woo")).to eq("woo")
+      
     end
   end
 end

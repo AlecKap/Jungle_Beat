@@ -61,6 +61,14 @@ class LinkedList
     end
   end
 
-
-  #### you are about to start .insert!
+  def insert(index, new_data)
+   current_node = @head
+   (index - 1).times do
+    current_node = current_node.next_node
+   end
+   new_node = Node.new(new_data, nil)
+   new_node.next_node = current_node.next_node
+   current_node.next_node = new_node
+   new_data
+  end
 end
