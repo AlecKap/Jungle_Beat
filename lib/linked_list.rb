@@ -71,4 +71,28 @@ class LinkedList
    current_node.next_node = new_node
    new_data
   end
+
+  def find(index, num_of_nodes)
+    current_node = @head
+    data = []
+    index.times do
+      current_node = current_node.next_node
+    end
+    num_of_nodes.times do
+      data << current_node.data
+      current_node.next_node
+    end
+    data.join(" ")
+  end
+
+  # def includes?(data)
+  #   current_node = @head
+  #   while current_node != nil
+  #     if (current_node.data) == data
+          #true
+          #end
+  #   end
+
+    #false
+  # end
 end

@@ -119,7 +119,7 @@ RSpec.describe 'LinkedList' do
       list.append("blop")
 
       expect(list.to_string).to eq("deep woo shi shu blop")
-      expect(list.find).to eq("shi")
+      expect(list.find(2,1)).to eq("shi")
     end
   end
 end
