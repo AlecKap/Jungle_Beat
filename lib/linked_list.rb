@@ -7,11 +7,11 @@ class LinkedList
   def append(new_data)
     # new_node = Node.new(data, nil)
     if @head == nil    ## Implies list is empty
-      @head = Node.new(new_data, nil)
+      @head = Node.new(new_data, nil) #new node element to add to the list.
     else
-      current_node = @head
-      while (current_node.next_node != nil)
-        current_node = current_node.next_node
+      current_node = @head 
+      while (current_node.next_node != nil) #if the node we are looking at contains nil value, it is the last node in the list.
+        current_node = current_node.next_node  #reassign current_node to the value of next_node, which is a either yet another node, or nil. 
       end
       # end of the list
       current_node.next_node = Node.new(new_data, nil)
@@ -45,9 +45,19 @@ class LinkedList
       current_node = @head
       while (current_node.next_node != nil)
         current_node = current_node.next_node
-        string << current_node.data
+        string << current_node.data #shovle this data value into the string array
       end
     end
     string.join(" ") #print array as a string that contains all the data stored in list.
+  end
+
+  def prepend(new_data)
+    if @head == nil
+      @head = Node.new(new_data, nil) #if list empty, make new node instance; set as head.
+    else #if not empty
+      current_head = Node.new(new_data, nil)
+      current_head.next_node = @head
+      @head = current_head
+    end
   end
 end

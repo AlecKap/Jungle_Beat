@@ -63,7 +63,7 @@ RSpec.describe 'LinkedList' do
       list = LinkedList.new
       list.append("doop")
       list.append("deep")
-      list.append("dahp")
+      list.append("dahp") #I wanted to make sure it would work past 2.
 
       expect(list.count).to eq(3) 
     end
@@ -74,6 +74,17 @@ RSpec.describe 'LinkedList' do
       list.append("deep")
 
       expect(list.to_string).to eq("doop deep") 
+    end
+  end
+
+  describe 'additional method tests' do
+    it 'adds node to front of array, as head' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+
+      expect(list.to_string).to eq("dop plop suu")
     end
   end
 end
