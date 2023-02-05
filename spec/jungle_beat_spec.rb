@@ -27,6 +27,14 @@ RSpec.describe 'JungleBeat' do
       expect(jb.list.head.data).to eq("deep")
       expect(jb.list.head.next_node.data).to eq("doo")
     end
+
+    it 'can add multiple nodes at once to list' do
+      jb = JungleBeat.new
+      jb.append("deep doo dit")
+      jb.append("woo hoo shu")
+      
+      expect(jb.list.count).to eq(6)
+    end
   end
 end
 
