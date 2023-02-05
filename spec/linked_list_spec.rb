@@ -121,5 +121,29 @@ RSpec.describe 'LinkedList' do
       expect(list.to_string).to eq("deep woo shi shu blop")
       expect(list.find(2,1)).to eq("shi")
     end
+
+    it 'checks to see if list includes data' do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.includes?("deep")).to be(true)
+    end
+    
+    it 'removes last node from list' do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+
+      expect(list.pop).to eq("blop")
+      expect(list.pop).to eq("shu")
+    end
+
   end
 end

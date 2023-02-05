@@ -85,14 +85,25 @@ class LinkedList
     data.join(" ")
   end
 
-  # def includes?(data)
-  #   current_node = @head
-  #   while current_node != nil
-  #     if (current_node.data) == data
-          #true
-          #end
-  #   end
+  def includes?(data)
+    current_node = @head
+    while current_node.next_node != nil #IOW while the list is not empty
+      if (current_node.data == data)
+        return true 
+      end
+      current_node = current_node.next_node
+    end
+    false
+  end
 
-    #false
-  # end
+  def pop
+    
+    current_node = @head
+    while current_node.next_node.next_node != nil #IOW while the list is not empty
+      current_node = current_node.next_node
+    end
+    last_node = current_node.next_node
+    current_node.next_node = nil
+    last_node.data
+  end
 end
