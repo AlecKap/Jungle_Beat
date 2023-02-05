@@ -13,4 +13,8 @@ class JungleBeat
     end
     new_string.join(" ")
   end
+
+  def count
+    list.count
+  end
 end
