@@ -99,7 +99,7 @@ class LinkedList
   def pop
     
     current_node = @head
-    while current_node.next_node.next_node != nil #IOW while the list is not empty
+    while current_node.next_node.next_node != nil
       current_node = current_node.next_node
     end
     last_node = current_node.next_node
