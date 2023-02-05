@@ -1,3 +1,5 @@
+##### = Check Foot Notes for comments
+
 class LinkedList
   attr_reader :head, :count, :to_string
   def initialize
@@ -5,13 +7,12 @@ class LinkedList
   end
 
   def append(new_data)
-    # new_node = Node.new(data, nil)
     if @head == nil    ## Implies list is empty
-      @head = Node.new(new_data, nil) #new node element to add to the list.
+      @head = Node.new(new_data, nil)       ###### *1 
     else
       current_node = @head 
-      while (current_node.next_node != nil) #if the node we are looking at contains nil value, it is the last node in the list.
-        current_node = current_node.next_node  #reassign current_node to the value of next_node, which is a either yet another node, or nil. 
+      while (current_node.next_node != nil)     ##### *2
+        current_node = current_node.next_node        ##### *3 
       end
       # end of the list
       current_node.next_node = Node.new(new_data, nil)
@@ -53,7 +54,7 @@ class LinkedList
 
   def prepend(new_data)
     if @head == nil
-      @head = Node.new(new_data, nil) #if list empty, make new node instance; set as head.
+      @head = Node.new(new_data, nil)      ##### *4
     else #if not empty
       current_head = Node.new(new_data, nil)
       current_head.next_node = @head
@@ -63,7 +64,7 @@ class LinkedList
 
   def insert(index, new_data)
    current_node = @head
-   (index - 1).times do
+   (index - 1).times do                 ##### *5
     current_node = current_node.next_node
    end
    new_node = Node.new(new_data, nil)
@@ -99,7 +100,7 @@ class LinkedList
   def pop
     
     current_node = @head
-    while current_node.next_node.next_node != nil
+    while current_node.next_node.next_node != nil 
       current_node = current_node.next_node
     end
     last_node = current_node.next_node
@@ -107,3 +108,16 @@ class LinkedList
     last_node.data
   end
 end
+
+
+#### FOOT NOTES ####
+
+# 1. Reassign new node element/object to head.
+# 2. If the node we are looking at contains nil value, 
+#    it is the last node in the list.
+# 3. reassign current_node to the value of next_node, 
+#    which is a either yet another node, or nil. 
+# 4. If list empty, make new node instance; set as head.
+
+# 5. Minus 1 here because in order to insert a node, 
+#    we need to interact witht the previous nodes next_node attribute.
