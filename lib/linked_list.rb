@@ -1,7 +1,8 @@
 ##### = Check Foot Notes for comments
 
 class LinkedList
-  attr_reader :head, :count, :to_string
+  attr_accessor :head
+  attr_reader :count, :to_string
   def initialize
     @head = nil
   end
@@ -98,7 +99,6 @@ class LinkedList
   end
 
   def pop
-    
     current_node = @head
     while current_node.next_node.next_node != nil 
       current_node = current_node.next_node
@@ -108,6 +108,11 @@ class LinkedList
     last_node.data
   end
 end
+##### Scroll down for foot notes
+
+
+
+
 
 
 #### FOOT NOTES ####
