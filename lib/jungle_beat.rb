@@ -1,6 +1,7 @@
 class JungleBeat
+  attr_reader :list
   def initialize
-    @list = LinkedList
+    @list = LinkedList.new
     
   end
 end
