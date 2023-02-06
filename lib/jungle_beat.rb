@@ -1,7 +1,9 @@
 class JungleBeat
   attr_reader :list
-  def initialize
+  attr_accessor :rate
+  def initialize()
     @list = LinkedList.new
+    @rate = 500
   end
 
   def append(new_data)
@@ -19,6 +21,10 @@ class JungleBeat
   end
 
   def play
-    `say -r 150 -v Boing #{@list.to_string}`
+    `say -r #{@rate} -v Boing #{@list.to_string}`
+  end
+
+  def rate(num)
+    @rate = num
   end
 end
