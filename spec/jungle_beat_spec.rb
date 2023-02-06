@@ -44,7 +44,7 @@ RSpec.describe 'JungleBeat' do
   end
 
   describe 'plays sound' do
-     it 'plays sound of string of node data' do
+    it 'plays sound of string of node data' do
       jb = JungleBeat.new
       jb.append("deep doo ditt woo hoo shu")
 
@@ -57,6 +57,15 @@ RSpec.describe 'JungleBeat' do
       jb.rate = 100
 
       expect(jb.play)
+    end
+  end
+
+  describe 'append only specified data to list' do
+    it 'append only specified data to list' do
+      jb = JungleBeat.new("deep")
+      jb.append("Mississippi")
+
+      expect(jb.count).to eq(1)
     end
   end
 end
