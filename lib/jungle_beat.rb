@@ -1,6 +1,6 @@
 class JungleBeat
   attr_reader :list
-  attr_accessor :rate
+  attr_accessor :rate, :voice
   def initialize(data = nil)
     @list = LinkedList.new
     @rate = 500
@@ -13,7 +13,7 @@ class JungleBeat
   def append(new_data)
     new_data = new_data.split
     new_string =  []
-    valid_beats = ["tee", "dee", "deep", "bop", "woo", "hoo", "shu", "boop", "la", "doo", "ditt", "na"]
+    valid_beats = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
     new_string = new_data.select do |data|
       valid_beats.any? do |beat|
         beat == data
@@ -31,6 +31,10 @@ class JungleBeat
 
   def play
     `say -r #{@rate} -v #{@voice} #{@list.to_string}`
+  end
+
+  def all
+    @list.to_string
   end
 
   def rate(num)
