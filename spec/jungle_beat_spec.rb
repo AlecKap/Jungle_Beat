@@ -56,7 +56,15 @@ RSpec.describe 'JungleBeat' do
       jb.append("deep doo ditt woo hoo shu")
       jb.rate = 100
 
-      expect(jb.play)
+      expect(jb.play) # To be played at a rate of 100
+    end
+
+    it 'resets rate at which sound is played' do
+      jb = JungleBeat.new("deep dop dop deep")
+      jb.rate = 100
+      jb.reset_rate
+
+      expect(jb.play) # To be played at the default rate
     end
   end
 
