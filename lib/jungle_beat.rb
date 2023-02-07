@@ -1,6 +1,7 @@
 class JungleBeat
   attr_reader :list, :all
   attr_accessor :rate, :voice
+  
   def initialize(data = nil)
     @list = LinkedList.new
     @rate = 500
