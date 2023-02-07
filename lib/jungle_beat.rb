@@ -1,6 +1,9 @@
 class JungleBeat
+  VALID_BEATS = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
+  
   attr_reader :list, :all
   attr_accessor :rate, :voice
+
   def initialize(data = nil)
     @list = LinkedList.new
     @rate = 500
@@ -13,9 +16,9 @@ class JungleBeat
   def append(new_data)
     new_data = new_data.split
     new_string =  []
-    valid_beats = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
+    # VALID_BEATS = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
     new_string = new_data.select do |data|
-      valid_beats.any? {|beat| beat == data }
+      VALID_BEATS.any? {|beat| beat == data }
     end
     new_string.each {|data| @list.append(data)}
     new_string.join(" ")
@@ -24,9 +27,9 @@ class JungleBeat
   def prepend(new_data)
     new_data = new_data.split
     new_string =  []
-    valid_beats = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
+    # VALID_BEATS = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
     new_string = new_data.select do |data|
-      valid_beats.any? {|beat| beat == data}
+      VALID_BEATS.any? {|beat| beat == data}
     end
     new_string.each {|data|@list.prepend(data)}
     new_string.join(" ")
