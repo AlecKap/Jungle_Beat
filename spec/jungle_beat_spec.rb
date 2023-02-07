@@ -74,6 +74,7 @@ RSpec.describe 'JungleBeat' do
       jb.append("Mississippi")
 
       expect(jb.count).to eq(1)
+      expect(jb.all).to eq("deep")
     end
   end
 
@@ -91,6 +92,16 @@ RSpec.describe 'JungleBeat' do
       jb.voice = "Daniel"
 
       expect(jb.play) # To be played at a rate of 100 in Daniel voice.
+    end
+
+    it 'plays default voice and default rate' do
+      jb = JungleBeat.new("scoopity doopity boopity bop")
+      jb.rate = 100
+      jb.voice = "Daniel"
+      jb.reset_rate
+      jb.reset_voice
+
+      expect(jb.play) # To be played at a rate of 100 in Boing voice.
     end
   end
 end
