@@ -15,13 +15,9 @@ class JungleBeat
     new_string =  []
     valid_beats = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
     new_string = new_data.select do |data|
-      valid_beats.any? do |beat|
-        beat == data
-      end
+      valid_beats.any? {|beat| beat == data }
     end
-    new_string.each do |data|
-      @list.append(data)
-    end
+    new_string.each {|data| @list.append(data)}
     new_string.join(" ")
   end
 
@@ -30,13 +26,9 @@ class JungleBeat
     new_string =  []
     valid_beats = ["tee", "dee", "deep", "scoopity", "boopity", "doopity", "bop", "woo", "hoo", "shu", "boop", "la", "dop", "doo", "ditt", "na"]
     new_string = new_data.select do |data|
-      valid_beats.any? do |beat|
-        beat == data
-      end
+      valid_beats.any? {|beat| beat == data}
     end
-    new_string.each do |data|
-      @list.prepend(data)
-    end
+    new_string.each {|data|@list.prepend(data)}
     new_string.join(" ")
   end
 
