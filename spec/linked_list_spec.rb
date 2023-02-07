@@ -30,7 +30,6 @@ RSpec.describe 'LinkedList' do
       list = LinkedList.new
       list.append("doop")
       
-
       expect(list.head.data).to eq("doop")
       expect(list.head).to be_instance_of(Node)
       expect(list.head.next_node).to be(nil)
