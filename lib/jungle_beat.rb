@@ -40,4 +40,12 @@ class JungleBeat
   def reset_rate
     @rate = 500
   end
+
+  def voice(name_of_voice)
+    @voice = name_of_voice
+  end
+
+  def reset_voice
+    @voice = "Boing"
+  end
 end
