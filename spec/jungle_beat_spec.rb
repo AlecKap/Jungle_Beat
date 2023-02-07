@@ -104,5 +104,12 @@ RSpec.describe 'JungleBeat' do
       expect(jb.play) # To be played at a rate of 100 in Boing voice.
     end
   end
+
+  it 'adds new data to front of list' do
+    jb = JungleBeat.new("deep")
+    jb.append("Mississippi")
+    jb.prepend("tee tee tee Mississippi")
+    expect(jb.all).to eq("tee tee tee deep")
+  end
 end
 
