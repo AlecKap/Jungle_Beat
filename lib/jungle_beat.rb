@@ -37,4 +37,7 @@ class JungleBeat
     @rate = num
   end
 
+  def reset_rate
+    @rate = 500
+  end
 end
