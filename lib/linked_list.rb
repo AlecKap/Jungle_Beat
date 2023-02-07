@@ -1,8 +1,8 @@
 ##### = Check Foot Notes for comments
 
 class LinkedList
-  attr_accessor :head
-  attr_reader :count, :to_string
+  attr_accessor :head, :count
+  attr_reader :to_string
   def initialize
     @head = nil
   end
@@ -38,7 +38,7 @@ class LinkedList
   end
   
   def to_string
-    string = [head.data] #sets string variable
+    string = [@head.data] #sets string variable
     if @head == nil # If list is empty, then print empty string.
       string = nil
     elsif @head.next_node == nil # .next_node implies list is not empty, but the nil in this case implies it only has one node element.  
@@ -108,12 +108,6 @@ class LinkedList
     last_node.data
   end
 end
-##### Scroll down for foot notes
-
-
-
-
-
 
 #### FOOT NOTES ####
 
