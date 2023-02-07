@@ -41,6 +41,14 @@ RSpec.describe 'JungleBeat' do
       
       expect(jb.list.count).to eq(6)
     end
+
+    it 'append only specified data to list' do
+      jb = JungleBeat.new("deep")
+      jb.append("Mississippi")
+
+      expect(jb.count).to eq(1)
+      expect(jb.all).to eq("deep")
+    end
   end
 
   describe 'plays sound' do
@@ -65,16 +73,6 @@ RSpec.describe 'JungleBeat' do
       jb.reset_rate
 
       expect(jb.play) # To be played at the default rate
-    end
-  end
-
-  describe 'append only specified data to list' do
-    it 'append only specified data to list' do
-      jb = JungleBeat.new("deep")
-      jb.append("Mississippi")
-
-      expect(jb.count).to eq(1)
-      expect(jb.all).to eq("deep")
     end
   end
 
