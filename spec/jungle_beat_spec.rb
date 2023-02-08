@@ -25,9 +25,10 @@ RSpec.describe 'JungleBeat' do
       expect(jb.append("deep doo ditt")).to eq(jb.list.to_string)
       expect(jb.list.head.data).to eq("deep")
       expect(jb.list.head.next_node.data).to eq("doo")
+      expect(jb.list.count).to eq(3)
     end
 
-    it 'can add multiple nodes at once to list' do
+    it 'can add multiple nodes via different append instances' do
       jb = JungleBeat.new
       jb.append("deep doo ditt")
       jb.append("woo hoo shu")
@@ -35,23 +36,30 @@ RSpec.describe 'JungleBeat' do
       expect(jb.list.count).to eq(6)
     end
     
-    it 'can add multiple nodes at once to list' do
+    it 'can add multiple nodes all in one append instance' do
       jb = JungleBeat.new
       jb.append("deep doo ditt woo hoo shu")
       
       expect(jb.list.count).to eq(6)
     end
 
-    it 'append only specified data to list' do
+    it 'appends only specified data to list' do
       jb = JungleBeat.new("deep")
       jb.append("Mississippi")
 
       expect(jb.count).to eq(1)
       expect(jb.all).to eq("deep")
     end
+
+    it 'adds new data to front of list' do
+      jb = JungleBeat.new("deep")
+      jb.append("Mississippi")
+      jb.prepend("tee tee tee Mississippi")
+      expect(jb.all).to eq("tee tee tee deep")
+    end
   end
 
-  describe 'plays sound' do
+  describe 'plays sound with voice and specific rate' do
     it 'plays sound of string of node data' do
       jb = JungleBeat.new
       jb.append("deep doo ditt woo hoo shu")
@@ -74,9 +82,8 @@ RSpec.describe 'JungleBeat' do
 
       expect(jb.play) # To be played at the default rate
     end
-  end
 
-  describe 'plays voice' do
+    
     it 'plays default voice' do
       jb = JungleBeat.new("scoopity doopity boopity bop")
       jb.rate = 100
@@ -101,13 +108,6 @@ RSpec.describe 'JungleBeat' do
 
       expect(jb.play) # To be played at a rate of 100 in Boing voice.
     end
-  end
-
-  it 'adds new data to front of list' do
-    jb = JungleBeat.new("deep")
-    jb.append("Mississippi")
-    jb.prepend("tee tee tee Mississippi")
-    expect(jb.all).to eq("tee tee tee deep")
   end
 end
 
